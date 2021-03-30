@@ -28,9 +28,9 @@ services:
     volumes:
       - "./docker/localstack/init:/docker-entrypoint-initaws.d"
       - "./docker/localstack/tmp:/tmp/localstack"
-    # NOTE: sdk経由でs3にアクセスする際のhost解決のために設定
     networks:
       backend:
+        # NOTE: sdk経由でs3をvirtual hosted-styleでアクセスする際のhost解決
         aliases:
           - sample-bucket.localstack
 

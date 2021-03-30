@@ -11,14 +11,14 @@ $keyname = 'sample.txt';
 $s3 = new S3Client([
     'version' => 'latest',
     'region'  => 'ap-northeast-1',
-    // 'endpoint' => 'http://localstack:4566',
+    'endpoint' => 'http://localstack:4566',
     // NOTE: use_path_style_endpointが使えない場合、host解決をした上でエンドポイントをpath styleで指定することでlocalstackを動かすことができる
-    'endpoint' => 'http://localstack:4566/' . $bucket . '/' . $keybane,
+    // 'endpoint' => 'http://localstack:4566/' . $bucket . '/' . $keyname,
     'credentials' => [
-      'key' => '',
-      'secret' => '',
+        'key' => '',
+        'secret' => '',
     ],
-    // 'use_path_style_endpoint' => true,
+    'use_path_style_endpoint' => true,
 ]);
 
 try {
