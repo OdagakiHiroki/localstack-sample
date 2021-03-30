@@ -12,6 +12,9 @@ services:
       - ./app/src:/var/www/html
     ports:
       - 8080:80
+    networks:
+      backend:
+
   localstack:
     container_name: localstack
     image: localstack/localstack
@@ -25,3 +28,11 @@ services:
     volumes:
       - "./docker/localstack/init:/docker-entrypoint-initaws.d"
       - "./docker/localstack/tmp:/tmp/localstack"
+    networks:
+      backend:
+        # NOTE: sdk経由でs3をvirtual hosted-styleでアクセスする際のhost解決
+        aliases:
+          - sample-bucket.localstack
+
+networks:
+  backend:
