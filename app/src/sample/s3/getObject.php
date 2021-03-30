@@ -1,6 +1,18 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/index.html">トップへ戻る</a>
+</body>
+</html>
 
-require '../vendor/autoload.php';
+<?php
+require '../../vendor/autoload.php';
 
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
@@ -29,10 +41,9 @@ try {
     ]);
 
     // Display the object in the browser.
-    header("Content-Type: {$result['ContentType']}");
+    // header("Content-Type: {$result['ContentType']}");
     echo $result['Body'];
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-
 ?>
