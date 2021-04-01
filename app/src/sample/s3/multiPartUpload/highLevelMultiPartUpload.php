@@ -19,7 +19,8 @@ use Aws\S3\MultipartUploader;
 use Aws\S3\S3Client;
 
 $bucket = 'sample-bucket';
-$keyname = 'multi-part-upload.txt';
+$keyname = 'high-level-multi-part-upload.txt';
+$filename = './multi-part-upload.txt';
 
 $s3 = new S3Client([
     'version' => 'latest',
@@ -32,7 +33,7 @@ $s3 = new S3Client([
     'use_path_style_endpoint' => true,
 ]);
 
-$uploader = new MultipartUploader($s3, './multi-part-upload.txt', [
+$uploader = new MultipartUploader($s3, $filename, [
     'Bucket' => $bucket,
     'key' => $keyname
 ]);
