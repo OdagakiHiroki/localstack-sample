@@ -11,7 +11,7 @@ services:
       - ./docker/app/php.ini:/usr/local/etc/php/php.ini
       - ./app/src:/var/www/html
     ports:
-      - 8080:80
+      - 80:80
     networks:
       backend:
 
